@@ -10,6 +10,166 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABG — Alkabir Business General</title>
+<meta name="description" content="Alkabir Business General (ABG) : miel et café de qualité, avec Alkabir Honey et Alkabir Coffee. Basé à Touba Darou Khoudoss, Sénégal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Yesteryear&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function(){
+    var t = localStorage.getItem('abg-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="brand">
+    <img src="ABG.jpeg" alt="Logo ABG — Alkabir Business General" class="brand-logo">
+    <span>Alkabir Business General</span>
+  </div>
+  <nav id="mainNav">
+    <ul>
+      <li><a href="#accueil"><span class="nav-index">01</span>Accueil</a></li>
+      <li><a href="#accueil-about"><span class="nav-index">02</span>À propos</a></li>
+      <li><a href="#services"><span class="nav-index">03</span>Services</a></li>
+      <li><a href="#contact"><span class="nav-index">04</span>Contact</a></li>
+    </ul>
+  </nav>
+  <button id="themeToggle" class="theme-toggle" aria-label="Changer de thème">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a.6.6 0 0 0-.8-.7A9.5 9.5 0 1 0 21.2 15.3a.6.6 0 0 0-.7-.8z"/></svg>
+  </button>
+  <button id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div id="mobileMenu">
+  <ul>
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#accueil-about">À propos</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<section class="hero" id="accueil">
+  <div class="crescent"></div>
+  <span class="eyebrow">Miel &amp; Café — Qualité &amp; Confiance</span>
+  <div class="type-wrap">
+    <div class="type-abg" id="typeAbg"><span id="typeAbgText"></span><span class="cursor" id="cursor1">&nbsp;</span></div>
+    <span class="type-full" id="typeFull"></span>
+  </div>
+  <p class="tagline" id="tagline">
+    ABG — Alkabir Business General est une maison qui construit des marques pensées pour résoudre
+    de vrais besoins : la qualité, la confiance et l'exigence, portées par des enseignes comme
+    Alkabir Honey et Alkabir Coffee, avec d'autres univers à venir.
+  </p>
+  <div class="scroll-cue" id="scrollCue">
+    <span>Découvrir</span>
+    <span class="stick"></span>
+  </div>
+</section>
+
+<section id="accueil-about">
+  <div class="about-grid">
+    <div>
+      <h3>Qui est ABG ?</h3>
+      <p>
+        Alkabir Business General est une maison mère fondée sur une idée simple : résoudre les
+        problèmes de ses clients en créant des marques exigeantes, chacune experte dans son domaine.
+      </p>
+      <p>
+        Sous cette bannière grandissent aujourd'hui Alkabir Honey, pour le miel, et Alkabir Coffee,
+        pour le café, deux premières enseignes d'une famille de marques appelée à s'agrandir.
+      </p>
+    </div>
+    <div class="about-mark">
+      <img src="ABG.jpeg" alt="Emblème ABG" class="brand-logo">
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head">
+    <span class="kicker">Nos Services</span>
+    <h2>Deux savoir-faire, une même exigence</h2>
+    <p>Chaque produit ABG est sélectionné avec la même rigueur, du fournisseur jusqu'à vous.</p>
+  </div>
+  <div class="cards">
+    <div class="card honey" data-type-target="Alkabir Honey">
+      <div class="mark">
+        <div class="brand-lockup">
+          <span class="script">Al Kabir</span>
+          <span class="big">Honey</span>
+          <span class="drop"></span>
+        </div>
+      </div>
+      <h3><span class="type-card" id="typeHoney"></span><span class="card-cursor">&nbsp;</span></h3>
+      <p>La marque miel d'Alkabir Business General : un miel pur, disponible en plusieurs quantités, pour les particuliers comme pour les besoins plus importants.</p>
+      <a class="link" href="#contact">En savoir plus <span class="arrow">→</span></a>
+    </div>
+    <div class="card coffee" data-type-target="Alkabir Coffee">
+      <div class="mark">
+        <div class="brand-lockup">
+          <svg class="steam" viewBox="0 0 60 26">
+            <path d="M18 24 c-4 -6 4 -10 0 -18"/>
+            <path d="M30 24 c-4 -6 4 -10 0 -18"/>
+            <path d="M42 24 c-4 -6 4 -10 0 -18"/>
+          </svg>
+          <span class="script">Al Kabir</span>
+          <span class="sub">COFFEE</span>
+        </div>
+      </div>
+      <h3><span class="type-card" id="typeCoffee"></span><span class="card-cursor">&nbsp;</span></h3>
+      <p>La marque café d'Alkabir Business General : un café sélectionné pour ses arômes et sa constance, torréfié pour révéler le meilleur de chaque grain.</p>
+      <a class="link" href="#contact">En savoir plus <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <span class="kicker">Contact</span>
+    <h2>Discutons de votre commande</h2>
+    <p>Une question sur le miel, le café, ou une commande en gros ? Contactez ABG directement.</p>
+  </div>
+  <div class="contact-row">
+    <div><span>Email</span><a href="mailto:contact@alkabirbusinessgenerale.com">contact@alkabirbusinessgenerale.com</a></div>
+    <div><span>Téléphone</span>+221 78 144 83 08</div>
+    <div><span>Localisation</span>Touba Darou Khoudoss, Sénégal</div>
+  </div>
+
+  <form id="contactForm" class="contact-form" novalidate>
+    <div class="form-row">
+      <input type="text" id="cf-name" name="name" placeholder="Votre nom" required>
+      <input type="tel" id="cf-phone" name="phone" placeholder="Votre téléphone" required>
+    </div>
+    <textarea id="cf-message" name="message" rows="4" placeholder="Votre message (produit, quantité, ville...)" required></textarea>
+    <button type="submit" class="btn-whatsapp">
+      <svg viewBox="0 0 32 32" class="wa-icon" aria-hidden="true"><path fill="currentColor" d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.22.6 4.3 1.65 6.1L4 29l8.06-2.11a12.9 12.9 0 0 0 3.96.62h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.65 3 16.02 3zm0 21.9h-.01a10 10 0 0 1-5.1-1.4l-.37-.22-3.79.99 1.02-3.7-.24-.38a9.86 9.86 0 0 1-1.53-5.27C6 9.9 10.4 5.5 16.03 5.5c2.66 0 5.16 1.04 7.04 2.93a9.85 9.85 0 0 1 2.91 7.03c0 5.63-4.4 10.04-9.96 10.04zm5.5-7.44c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+      Envoyer sur WhatsApp
+    </button>
+  </form>
+</section>
+
+<footer>
+  <div class="brand-mini">
+    <img src="ABG.jpeg" alt="Logo ABG — Alkabir Business General" class="brand-logo">
+    <span>© 2026 Alkabir Business General</span>
+  </div>
+  <span>Exigence &amp; Qualité</span>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
 
 <header id="site-header">
   <div class="brand">
