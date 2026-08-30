@@ -4,6 +4,28 @@
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
 
+  // Theme toggle (sombre / clair) + logo adapté
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const brandLogos = document.querySelectorAll('.brand-logo');
+
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    brandLogos.forEach(img => {
+      img.src = theme === 'light' ? 'ABG-light.jpeg' : 'ABG.jpeg';
+    });
+    localStorage.setItem('abg-theme', theme);
+  }
+
+  applyTheme(root.getAttribute('data-theme') || 'dark');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+  }
+
   // Mobile hamburger menu
   const navToggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -124,3 +146,29 @@
   }, { threshold: 0.4 });
 
   document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+  // Contact form -> WhatsApp
+  // Numéro WhatsApp d'ABG au format international, sans "+" ni espaces
+  const WHATSAPP_NUMBER = '221781448308';
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('cf-name').value.trim();
+      const phone = document.getElementById('cf-phone').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+
+      if (!name || !phone || !message) return;
+
+      const text =
+        `Bonjour ABG, je m'appelle ${name}.\n` +
+        `Téléphone : ${phone}\n\n` +
+        `${message}`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+      contactForm.reset();
+    });
+  }
