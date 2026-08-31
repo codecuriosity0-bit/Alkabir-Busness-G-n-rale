@@ -113,6 +113,56 @@
   }
   window.addEventListener('load', () => heroCycle(true));
 
+  // Bismillah: écriture/effacement par sous-chaînes (préserve la liaison des lettres arabes)
+  const bismillahText = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
+  const bismillahEl = document.getElementById('bismillahText');
+
+  function typeArabic(el, text, speed, onDone){
+    if(reduceMotion){
+      el.textContent = text;
+      if(onDone) onDone();
+      return;
+    }
+    let i = 0;
+    (function step(){
+      if(i <= text.length){
+        el.textContent = text.slice(0, i);
+        i++;
+        setTimeout(step, speed);
+      } else if(onDone){
+        onDone();
+      }
+    })();
+  }
+  function eraseArabic(el, speed, onDone){
+    if(reduceMotion){
+      if(onDone) onDone();
+      return;
+    }
+    let i = el.textContent.length;
+    (function step(){
+      if(i > 0){
+        i--;
+        el.textContent = bismillahText.slice(0, i);
+        setTimeout(step, speed);
+      } else if(onDone){
+        onDone();
+      }
+    })();
+  }
+  function bismillahCycle(isFirst){
+    if(!bismillahEl) return;
+    typeArabic(bismillahEl, bismillahText, isFirst ? 85 : 65, () => {
+      if(reduceMotion) return;
+      setTimeout(() => {
+        eraseArabic(bismillahEl, 35, () => {
+          setTimeout(() => bismillahCycle(false), 600);
+        });
+      }, 2800);
+    });
+  }
+  if(bismillahEl) window.addEventListener('load', () => bismillahCycle(true));
+
   // Card brand-name typing, looping continuously once scrolled into view
   const cardTargets = [
     { el: document.getElementById('typeHoney'), text: 'Alkabir Honey' },
@@ -146,6 +196,22 @@
   }, { threshold: 0.4 });
 
   document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+  // Scroll reveal (fondu + montée), esprit Apple
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
 
   // Contact form -> WhatsApp
   // Numéro WhatsApp d'ABG au format international, sans "+" ni espaces
