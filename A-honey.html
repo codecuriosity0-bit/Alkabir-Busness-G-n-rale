@@ -182,8 +182,8 @@
     </div>
     <select id="of-product" name="product" required>
       <option value="" disabled selected>Choisissez un format</option>
-      <option value="Pot 250g">Pot 250mL</option>
-      <option value="Pot 1kg">Pot 1L</option>
+      <option value="Pot 250mL">Pot 250mL</option>
+      <option value="Pot 1L">Pot 1L</option>
     </select>
     <textarea id="of-message" name="message" rows="3" placeholder="Quantité souhaitée, ville, précisions..."></textarea>
     <button type="submit" class="btn-whatsapp">
@@ -209,5 +209,44 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
 <script src="coffee.js"></script>
+<script>
+  // Pré-remplissage du formulaire de commande depuis les boutons "Commander cette gamme"
+  document.addEventListener('DOMContentLoaded', function () {
+    var orderButtons = document.querySelectorAll('.order-btn');
+    var productSelect = document.getElementById('of-product');
+    var orderForm = document.getElementById('orderForm');
+
+    orderButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var product = btn.getAttribute('data-product');
+        if (!productSelect || !product) return;
+
+        // Sélectionne automatiquement la gamme correspondante dans le formulaire
+        var matched = false;
+        for (var i = 0; i < productSelect.options.length; i++) {
+          if (productSelect.options[i].value === product) {
+            productSelect.selectedIndex = i;
+            matched = true;
+            break;
+          }
+        }
+        // Si le format exact n'existe pas dans la liste, l'ajoute puis le sélectionne
+        if (!matched) {
+          var opt = document.createElement('option');
+          opt.value = product;
+          opt.textContent = product;
+          productSelect.appendChild(opt);
+          productSelect.value = product;
+        }
+
+        // Emmène l'utilisateur directement vers le formulaire de commande
+        var commanderSection = document.getElementById('commander');
+        if (commanderSection) {
+          commanderSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>

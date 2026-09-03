@@ -97,7 +97,7 @@
   .hero-image{
     position:relative;
     height:78vh;
-    background-image: url(coffee-poster.jpeg);
+    background-image: url(honey-poster.jpeg);
     background-size:cover;
     background-position:center 32%;
     display:flex; align-items:flex-end; justify-content:center;
@@ -292,6 +292,8 @@
     outline:none; transition:border-color .25s ease;
   }
   .order-form select{ appearance:none; -webkit-appearance:none; cursor:pointer; }
+  .order-form select.filled{ color:var(--text); }
+  .order-form select:invalid{ color:var(--text-secondary); }
   .order-form input::placeholder,
   .order-form textarea::placeholder{ color:var(--text-secondary); }
   .order-form input:focus,
@@ -374,6 +376,7 @@
   footer .brand-mini img{ height:18px; }
   footer span{ font-size:0.78rem; color:var(--text-secondary); }
 
+  /* ---------- MOBILE ---------- */
   @media (max-width:760px){
     nav ul{display:none;}
     .nav-cta{display:none;}
@@ -381,7 +384,33 @@
     .feature-grid{grid-template-columns:1fr;}
     .gallery-grid{grid-template-columns:repeat(2, 1fr);}
     .testimonial-grid{grid-template-columns:1fr;}
-    section{padding:120px 6vw;}
+    section{padding:90px 6vw;}
+
+    /* Images en grand format redimensionnées pour mobile */
+    .hero-image{
+      height:52vh;
+      min-height:340px;
+      background-position:center 28%;
+    }
+    .hero{
+      min-height:auto;
+      padding:70px 6vw 50px;
+    }
+    .feature-photo{
+      aspect-ratio:4/3;
+    }
+    .gallery-item{
+      aspect-ratio:1/1;
+    }
+    .brand img{ height:18px; }
+    footer .brand-mini img{ height:16px; }
+  }
+
+  @media (max-width:420px){
+    .hero-image{
+      height:44vh;
+      min-height:280px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce){
