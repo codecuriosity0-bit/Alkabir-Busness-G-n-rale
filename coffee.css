@@ -188,7 +188,7 @@
   /* ---------- GAMMES ---------- */
   #gammes{ background:var(--bg-elevated); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
   .feature-grid{
-    max-width:100%; margin:88px auto 0;
+    max-width:1300; margin:88px auto 0;
     display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
   }
   .feature-card{
