@@ -2,7 +2,7 @@
   "name": "ABG Admin",
   "short_name": "ABG Admin",
   "description": "Gestion des gammes Alkabir Coffee & Honey",
-  "start_url": "./admin.html",
+  "start_url": "./abg-admin.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f8faf9",
