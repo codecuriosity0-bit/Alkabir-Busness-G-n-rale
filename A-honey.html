@@ -286,13 +286,16 @@
         const card = document.createElement('div');
         card.className = 'feature-card reveal show';
         card.innerHTML = `
+card.innerHTML = `
           <div class="feature-photo">
-            <img src="honey-poster.jpeg" alt="Miel Alkabir Honey ${p.name || ''}">
+            <img src="${p.image || 'honey-poster.jpeg'}" alt="Miel Alkabir Honey ${p.name || ''}">
           </div>
           <h3>${p.name || ''}</h3>
           <p>${p.description || ''}</p>
           <div class="feature-price">${p.price || ''}</div>
           <button type="button" class="btn btn-outline order-btn" data-product="${p.name || ''}" data-price="${p.price || ''}">Commander cette gamme</button>
+        `;
+
         `;
         grid.appendChild(card);
 
